@@ -1,24 +1,494 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Futur en Commun - Application éco-citoyenne locale</title>
-  <meta name="description" content="Futur en Commun est une application éco-citoyenne qui permet d’agir localement pour l’environnement en participant à des missions concrètes près de chez vous.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Futur en Commun - Agir localement pour l’environnement</title>
+  <meta name="description" content="Futur en Commun est une application éco-citoyenne qui permet de signaler des zones à nettoyer, contribuer à une cagnotte locale et participer à des missions près de chez soi." />
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --card: rgba(255,255,255,0.8);
+      --text: #2f3526;
+      --muted: #6f7667;
+      --green: #8fae3e;
+      --green-dark: #75922f;
+      --sand: #ece4bc;
+      --line: rgba(143, 174, 62, 0.15);
+      --shadow: 0 18px 50px rgba(56, 67, 39, 0.10);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(143,174,62,0.10), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(236,228,188,0.55), transparent 30%),
+        var(--bg);
+      min-height: 100vh;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 24px 0 8px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #eef5de, #f6f0cc);
+      box-shadow: inset 0 0 0 1px rgba(143,174,62,0.12);
+      font-size: 1.4rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(47,53,38,0.06);
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 36px 0 54px;
+    }
+
+    .hero-card {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      align-items: center;
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 44px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eef5de;
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      margin: 18px 0 18px;
+    }
+
+    .lead {
+      font-size: 1.18rem;
+      line-height: 1.65;
+      color: var(--muted);
+      margin: 0 0 28px;
+      max-width: 58ch;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 56px;
+      padding: 0 24px;
+      border-radius: 18px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1rem;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      color: white;
+      box-shadow: 0 12px 24px rgba(143,174,62,0.22);
+    }
+
+    .btn-secondary {
+      background: #f3edd0;
+      color: #54451c;
+      border: 1px solid rgba(84,69,28,0.08);
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(47,53,38,0.05);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.55rem;
+      margin-bottom: 6px;
+      letter-spacing: -0.04em;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.35;
+    }
+
+    .visual {
+      position: relative;
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+    }
+
+    .phone {
+      width: min(100%, 310px);
+      background: #fff;
+      border-radius: 34px;
+      padding: 18px 14px;
+      box-shadow: 0 26px 50px rgba(34, 40, 27, 0.18);
+      border: 6px solid #202317;
+      position: relative;
+    }
+
+    .phone::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 26px;
+      border-radius: 999px;
+      background: #202317;
+    }
+
+    .screen {
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #f9f8f2, #ffffff);
+      min-height: 480px;
+      padding: 22px 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .app-top {
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #67715b;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .map {
+      height: 140px;
+      border-radius: 22px;
+      background:
+        linear-gradient(120deg, rgba(143,174,62,0.18), rgba(143,174,62,0.02)),
+        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80') center/cover;
+      position: relative;
+    }
+
+    .pin {
+      position: absolute;
+      inset: auto auto 26px 54%;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: var(--green);
+      border: 4px solid white;
+      box-shadow: 0 8px 20px rgba(143,174,62,0.35);
+    }
+
+    .app-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 16px;
+      border: 1px solid rgba(47,53,38,0.05);
+      box-shadow: 0 10px 18px rgba(52, 58, 41, 0.05);
+    }
+
+    .app-card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .app-card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .pill-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .pill {
+      border-radius: 14px;
+      padding: 12px 10px;
+      text-align: center;
+      font-weight: 700;
+      background: #fffdf7;
+      border: 1px solid #eadfbe;
+      color: #604d1f;
+    }
+
+    .cta-app {
+      display: block;
+      width: 100%;
+      border: 0;
+      border-radius: 16px;
+      background: var(--green);
+      color: white;
+      font-weight: 800;
+      padding: 14px 16px;
+      text-align: center;
+    }
+
+    .features {
+      padding: 8px 0 72px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .feature {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(47,53,38,0.05);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 12px 24px rgba(52, 58, 41, 0.05);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #eef5de, #f6f0cc);
+      font-size: 1.4rem;
+    }
+
+    .feature h2 {
+      font-size: 1.15rem;
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.96rem;
+    }
+
+    footer {
+      padding: 0 0 42px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-card,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .visual {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-card {
+        padding: 24px;
+      }
+
+      .mini-stats,
+      .pill-row,
+      .nav {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-<body style="font-family: Arial; text-align: center; padding: 50px;">
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="brand-mark">🌱</div>
+        <span>Futur en Commun</span>
+      </div>
+      <div class="nav-links">
+        <a href="#fonctionnement">Comment ça marche</a>
+        <a href="#impact">Pourquoi</a>
+      </div>
+    </div>
+  </header>
 
-  <h1>🌱 Futur en Commun</h1>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-card">
+        <div>
+          <div class="eyebrow">🌱 Impact local, collectif et concret</div>
+          <h1>Agissez près de chez vous pour rendre l’environnement plus propre.</h1>
+          <p class="lead">
+            Signalez une zone à nettoyer, soutenez une cagnotte locale ou réalisez une mission utile près de chez vous. Futur en Commun transforme des gestes locaux en impact visible.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://futurencommun.glide.page/" target="_blank" rel="noopener noreferrer">Accéder à l’application</a>
+            <a class="btn btn-secondary" href="#fonctionnement">Découvrir le concept</a>
+          </div>
+          <div class="mini-stats" id="impact">
+            <div class="stat">
+              <strong>Signaler</strong>
+              <span>Des zones qui ont besoin d’une action concrète.</span>
+            </div>
+            <div class="stat">
+              <strong>Contribuer</strong>
+              <span>À une cagnotte pour déclencher une mission locale.</span>
+            </div>
+            <div class="stat">
+              <strong>Agir</strong>
+              <span>Directement sur le terrain quand une mission vous parle.</span>
+            </div>
+          </div>
+        </div>
 
-  <p>
-    Agissez concrètement pour votre environnement.<br><br>
-    Signalez des zones à nettoyer, contribuez à une cagnotte locale et participez à des actions près de chez vous.
-  </p>
+        <div class="visual">
+          <div class="phone" aria-hidden="true">
+            <div class="screen">
+              <div class="app-top">
+                <span>Signalements</span>
+                <span>Mission disponible</span>
+              </div>
+              <div class="map">
+                <div class="pin"></div>
+              </div>
+              <div class="app-card">
+                <h3>Route sortie centre commercial</h3>
+                <p>Une mission locale financée par la communauté pour rendre ce lieu plus propre.</p>
+                <div class="pill-row">
+                  <div class="pill">2 €</div>
+                  <div class="pill">5 €</div>
+                  <div class="pill">10 €</div>
+                  <div class="pill">20 €</div>
+                </div>
+                <div class="cta-app">Je soutiens cette mission</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <br>
+    <section class="features" id="fonctionnement">
+      <div class="wrap feature-grid">
+        <article class="feature">
+          <div class="feature-icon">📍</div>
+          <h2>1. Signalez</h2>
+          <p>Repérez une zone dégradée, ajoutez des détails utiles et rendez visible un besoin local.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">💛</div>
+          <h2>2. Soutenez</h2>
+          <p>Contribuez librement à une cagnotte pour encourager une intervention concrète sur le terrain.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">🧤</div>
+          <h2>3. Réalisez</h2>
+          <p>Acceptez une mission, agissez avec prudence, puis participez à un impact positif visible.</p>
+        </article>
+      </div>
+    </section>
+  </main>
 
-  <a href="https://go.glideapps.com/play/7mip1qrAunfzMVrklW94"
-     style="padding: 15px 25px; background-color: green; color: white; text-decoration: none; border-radius: 8px;">
-     Accéder à l'application
-  </a>
-
+  <footer>
+    <div class="wrap">Futur en Commun · Application éco-citoyenne à impact local</div>
+  </footer>
 </body>
 </html>
