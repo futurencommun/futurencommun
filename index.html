@@ -9,23 +9,17 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #faf9f4;
-      --surface: #ffffff;
+      --bg: #FAF9F4;
+      --surface: #FFFFFF;
       --green: #8FAE3E;
       --green-soft: #EEF5DE;
-      --yellow-soft: #F6F0CC;
-      --rose-soft: #F3E8E1;
       --text: #2F2F2F;
       --muted: #7E8478;
-      --line: #ECE8DC;
       --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      --radius-xl: 30px;
-      --radius-lg: 22px;
-      --radius-md: 18px;
     }
 
     * {
@@ -38,7 +32,7 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Manrope', sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
@@ -63,34 +57,34 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .topbar img {
-      width: 72px;
-      height: 72px;
+      width: 68px;
+      height: 68px;
       object-fit: cover;
-      border-radius: 20px;
+      border-radius: 18px;
       background: white;
       flex-shrink: 0;
     }
 
     .brand {
-      font-size: 1.9rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
       line-height: 1.1;
     }
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
       align-items: center;
-      gap: 48px;
+      gap: 32px;
     }
 
     .hero-left {
-      max-width: 620px;
+      max-width: 560px;
     }
 
     .eyebrow {
@@ -101,7 +95,7 @@
       color: var(--green);
       border-radius: 999px;
       padding: 10px 16px;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -109,18 +103,18 @@
     }
 
     h1 {
-      margin: 0 0 18px;
-      font-size: clamp(2.5rem, 5vw, 4.3rem);
-      line-height: 0.98;
-      letter-spacing: -0.06em;
-      font-weight: 800;
-      max-width: 9ch;
+      margin: 0 0 16px;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+      max-width: 10ch;
     }
 
     .subtitle {
-      margin: 0 0 26px;
+      margin: 0 0 24px;
       color: var(--muted);
-      font-size: 1.08rem;
+      font-size: 0.95rem;
       line-height: 1.7;
       max-width: 34ch;
     }
@@ -132,8 +126,8 @@
     }
 
     .btn {
-      min-height: 56px;
-      padding: 0 24px;
+      min-height: 54px;
+      padding: 0 22px;
       border-radius: 18px;
       display: inline-flex;
       align-items: center;
@@ -144,22 +138,14 @@
       transition: transform 0.15s ease, filter 0.15s ease;
       border: none;
       cursor: pointer;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      filter: brightness(0.98);
-    }
-
-    .btn-primary {
       background: var(--green);
       color: #ffffff;
       box-shadow: 0 10px 24px rgba(143, 174, 62, 0.18);
     }
 
-    .btn-secondary {
-      background: var(--yellow-soft);
-      color: #4A3F18;
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(0.98);
     }
 
     .phone-wrap {
@@ -169,13 +155,15 @@
 
     .phone {
       width: 100%;
-      max-width: 360px;
+      max-width: 280px;
       background: #ffffff;
-      border: 7px solid #232a1a;
+      border: 7px solid #232A1A;
       border-radius: 38px;
       padding: 16px 12px 14px;
       position: relative;
-      box-shadow: 0 20px 40px rgba(35, 42, 26, 0.12);
+      box-shadow: 0 20px 40px rgba(35, 42, 26, 0.10);
+      transform: scale(0.95);
+      transform-origin: center;
     }
 
     .phone::before {
@@ -184,10 +172,10 @@
       top: 10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 120px;
-      height: 28px;
+      width: 112px;
+      height: 26px;
       border-radius: 999px;
-      background: #232a1a;
+      background: #232A1A;
       z-index: 3;
     }
 
@@ -195,7 +183,6 @@
       overflow: hidden;
       border-radius: 26px;
       background: #ffffff;
-      min-height: 520px;
     }
 
     .screen img {
@@ -214,7 +201,7 @@
 
       .hero {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 24px;
       }
 
       .hero-left {
@@ -230,12 +217,16 @@
       }
 
       .topbar img {
-        width: 64px;
-        height: 64px;
+        width: 60px;
+        height: 60px;
       }
 
       .brand {
-        font-size: 1.6rem;
+        font-size: 1.35rem;
+      }
+
+      .phone {
+        max-width: 260px;
       }
     }
 
@@ -250,16 +241,16 @@
       }
 
       .brand {
-        font-size: 1.4rem;
+        font-size: 1.25rem;
       }
 
       h1 {
-        font-size: 2.5rem;
-        line-height: 1.02;
+        font-size: 2rem;
+        line-height: 1.1;
       }
 
       .subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
       }
 
       .actions {
@@ -271,7 +262,7 @@
       }
 
       .phone {
-        max-width: 320px;
+        max-width: 240px;
       }
     }
   </style>
@@ -294,7 +285,7 @@
         </p>
 
         <div class="actions">
-          <a class="btn btn-primary" href="https://futurencommun.glide.page" target="_blank" rel="noopener noreferrer">
+          <a class="btn" href="https://futurencommun.glide.page" target="_blank" rel="noopener noreferrer">
             Accéder à l’application
           </a>
         </div>
