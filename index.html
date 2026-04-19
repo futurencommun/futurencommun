@@ -12,258 +12,336 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #FAF9F4;
-      --surface: #FFFFFF;
-      --green: #8FAE3E;
-      --green-soft: #EEF5DE;
-      --text: #2F2F2F;
-      --muted: #7E8478;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    :root{
+      --bg:#f8f7f2;
+      --surface:#ffffff;
+      --green:#8FAE3E;
+      --green-soft:#EEF5DE;
+      --green-deep:#6f8d2d;
+      --text:#2F2F2F;
+      --muted:#7E8478;
+      --line:#ECE8DC;
+      --shadow:0 18px 50px rgba(40, 46, 28, 0.08);
+      --radius-xl:34px;
+      --radius-lg:24px;
+      --radius-md:18px;
     }
 
-    * {
-      box-sizing: border-box;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    html, body {
-      margin: 0;
-      padding: 0;
+    html, body{
+      width:100%;
+      min-height:100%;
     }
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
+    body{
+      font-family:'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(143,174,62,0.10), transparent 26%),
+        radial-gradient(circle at 100% 100%, rgba(238,245,222,0.85), transparent 24%),
+        var(--bg);
     }
 
-    img {
-      display: block;
-      max-width: 100%;
+    img{
+      display:block;
+      max-width:100%;
     }
 
-    .page {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 28px 28px 36px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .page{
+      max-width:1240px;
+      margin:0 auto;
+      padding:28px 28px 40px;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
 
-    .topbar {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 28px;
+    .topbar{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:34px;
     }
 
-    .topbar img {
-      width: 90px;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 20px;
-      background: white;
-      flex-shrink: 0;
+    .topbar img{
+      width:88px;
+      height:88px;
+      object-fit:cover;
+      border-radius:22px;
+      background:#fff;
+      box-shadow:0 8px 22px rgba(143,174,62,0.10);
+      flex-shrink:0;
     }
 
-    .brand {
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
     }
 
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      align-items: center;
-      gap: 40px;
+    .brand-title{
+      font-size:2rem;
+      font-weight:700;
+      letter-spacing:-0.04em;
+      line-height:1.05;
     }
 
-    .hero-left {
-      max-width: 600px;
+    .brand-subtitle{
+      font-size:0.98rem;
+      color:var(--muted);
+      font-weight:500;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--green-soft);
-      color: var(--green);
-      border-radius: 999px;
-      padding: 10px 16px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
+    .hero-shell{
+      background:rgba(255,255,255,0.74);
+      border:1px solid rgba(255,255,255,0.7);
+      box-shadow:var(--shadow);
+      border-radius:var(--radius-xl);
+      padding:42px 40px;
     }
 
-    h1 {
-      margin: 0 0 18px;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      font-weight: 700;
-      max-width: 11ch;
+    .hero{
+      display:grid;
+      grid-template-columns:1.15fr 0.85fr;
+      align-items:center;
+      gap:34px;
     }
 
-    .subtitle {
-      margin: 0 0 26px;
-      color: var(--muted);
-      font-size: 1.08rem;
-      line-height: 1.7;
-      max-width: 520px;
+    .hero-left{
+      max-width:640px;
     }
 
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:var(--green-soft);
+      color:var(--green-deep);
+      border-radius:999px;
+      padding:11px 17px;
+      font-size:0.82rem;
+      font-weight:700;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      margin-bottom:22px;
     }
 
-    .btn {
-      min-height: 54px;
-      padding: 0 22px;
-      border-radius: 18px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 700;
-      transition: transform 0.15s ease, filter 0.15s ease;
-      border: none;
-      cursor: pointer;
-      background: var(--green);
-      color: #ffffff;
-      box-shadow: 0 10px 24px rgba(143, 174, 62, 0.18);
+    h1{
+      font-size:clamp(2.5rem, 4.8vw, 4.6rem);
+      line-height:0.96;
+      letter-spacing:-0.06em;
+      font-weight:700;
+      max-width:10ch;
+      margin-bottom:20px;
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-      filter: brightness(0.98);
+    .subtitle{
+      font-size:1.08rem;
+      line-height:1.75;
+      color:var(--muted);
+      max-width:33ch;
+      margin-bottom:28px;
     }
 
-    .phone-wrap {
-      display: flex;
-      justify-content: center;
+    .cta-row{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
     }
 
-    .phone {
-      width: 85%;
-      max-width: 320px;
-      background: #ffffff;
-      border: 7px solid #232A1A;
-      border-radius: 38px;
-      padding: 16px 12px 14px;
-      position: relative;
-      box-shadow: 0 20px 40px rgba(35, 42, 26, 0.10);
-      transform: scale(0.95);
-      transform-origin: center;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:58px;
+      padding:0 24px;
+      border-radius:18px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:1rem;
+      transition:transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
     }
 
-    .phone::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 112px;
-      height: 26px;
-      border-radius: 999px;
-      background: #232A1A;
-      z-index: 3;
+    .btn:hover{
+      transform:translateY(-1px);
+      filter:brightness(0.99);
     }
 
-    .screen {
-      overflow: hidden;
-      border-radius: 26px;
-      background: #ffffff;
+    .btn-primary{
+      background:var(--green);
+      color:#fff;
+      box-shadow:0 12px 24px rgba(143,174,62,0.18);
     }
 
-    .screen img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
+    .micro-note{
+      font-size:0.95rem;
+      color:var(--muted);
+      font-weight:500;
     }
 
-    @media (max-width: 920px) {
-      .page {
-        justify-content: flex-start;
-        padding-top: 22px;
+    .hero-right{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+    }
+
+    .visual-glow{
+      position:absolute;
+      width:92%;
+      height:82%;
+      border-radius:36px;
+      background:radial-gradient(circle, rgba(143,174,62,0.12) 0%, rgba(143,174,62,0.02) 58%, transparent 75%);
+      filter:blur(4px);
+      z-index:0;
+    }
+
+    .phone{
+      width:100%;
+      max-width:310px;
+      background:#fff;
+      border:7px solid #24301a;
+      border-radius:40px;
+      padding:16px 12px 14px;
+      position:relative;
+      box-shadow:0 20px 42px rgba(36, 48, 26, 0.12);
+      z-index:1;
+    }
+
+    .phone::before{
+      content:"";
+      position:absolute;
+      top:10px;
+      left:50%;
+      transform:translateX(-50%);
+      width:118px;
+      height:28px;
+      background:#24301a;
+      border-radius:999px;
+      z-index:3;
+    }
+
+    .screen{
+      overflow:hidden;
+      border-radius:28px;
+      background:#fff;
+    }
+
+    .screen img{
+      width:100%;
+      height:auto;
+      object-fit:cover;
+      object-position:top center;
+    }
+
+    .pill{
+      position:absolute;
+      right:-8px;
+      bottom:28px;
+      background:rgba(255,255,255,0.92);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px 14px;
+      box-shadow:0 14px 30px rgba(0,0,0,0.06);
+      font-size:0.92rem;
+      color:var(--green-deep);
+      font-weight:600;
+      z-index:2;
+    }
+
+    @media (max-width: 980px){
+      .page{
+        justify-content:flex-start;
+        padding-top:22px;
       }
 
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 28px;
+      .hero{
+        grid-template-columns:1fr;
+        gap:28px;
       }
 
-      .hero-left {
-        max-width: none;
+      .hero-left{
+        max-width:none;
       }
 
-      h1 {
-        max-width: none;
+      h1{
+        max-width:none;
       }
 
-      .subtitle {
-        max-width: none;
+      .subtitle{
+        max-width:none;
       }
 
-      .topbar img {
-        width: 60px;
-        height: 60px;
+      .hero-right{
+        justify-content:flex-start;
       }
 
-      .brand {
-        font-size: 1.35rem;
-      }
-
-      .phone {
-        max-width: 280px;
-        width: 100%;
+      .pill{
+        right:auto;
+        left:200px;
       }
     }
 
-    @media (max-width: 560px) {
-      .page {
-        padding-left: 16px;
-        padding-right: 16px;
+    @media (max-width: 640px){
+      .page{
+        padding:18px 16px 28px;
       }
 
-      .topbar {
-        margin-bottom: 24px;
+      .topbar{
+        gap:12px;
+        margin-bottom:24px;
       }
 
-      .brand {
-        font-size: 1.25rem;
+      .topbar img{
+        width:72px;
+        height:72px;
+        border-radius:18px;
       }
 
-      h1 {
-        font-size: 2.1rem;
-        line-height: 1.1;
+      .brand-title{
+        font-size:1.55rem;
       }
 
-      .subtitle {
-        font-size: 0.98rem;
+      .brand-subtitle{
+        font-size:0.92rem;
       }
 
-      .actions {
-        flex-direction: column;
+      .hero-shell{
+        padding:26px 22px;
       }
 
-      .btn {
-        width: 100%;
+      h1{
+        font-size:2.3rem;
+        line-height:1.02;
       }
 
-      .phone {
-        max-width: 240px;
+      .subtitle{
+        font-size:1rem;
+      }
+
+      .cta-row{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .phone{
+        max-width:270px;
+      }
+
+      .pill{
+        position:static;
+        margin-top:14px;
       }
     }
   </style>
@@ -271,32 +349,42 @@
 <body>
   <main class="page">
     <div class="topbar">
-      <img src="./logo.png" alt="Logo Futur en Commun" />
-      <div class="brand">Futur en Commun</div>
+      <img src="./logo.png" alt="Logo Futur en Commun">
+      <div class="brand">
+        <div class="brand-title">Futur en Commun</div>
+        <div class="brand-subtitle">Application éco-citoyenne locale</div>
+      </div>
     </div>
 
-    <section class="hero">
-      <div class="hero-left">
-        <div class="eyebrow">🌱 Impact local et concret</div>
+    <section class="hero-shell">
+      <div class="hero">
+        <div class="hero-left">
+          <div class="eyebrow">🌱 Impact local et concret</div>
 
-        <h1>Agir localement pour un environnement plus propre.</h1>
+          <h1>Agir localement pour un environnement plus propre.</h1>
 
-        <p class="subtitle">
-          Signalez, soutenez et participez à des actions concrètes près de chez vous.
-        </p>
+          <p class="subtitle">
+            Signalez, soutenez et participez à des actions concrètes près de chez vous.
+          </p>
 
-        <div class="actions">
-          <a class="btn" href="https://futurencommun.glide.page" target="_blank" rel="noopener noreferrer">
-            Accéder à l’application
-          </a>
-        </div>
-      </div>
-
-      <div class="phone-wrap">
-        <div class="phone">
-          <div class="screen">
-            <img src="./app.png" alt="Capture de l’application Futur en Commun" />
+          <div class="cta-row">
+            <a class="btn btn-primary" href="TON_LIEN_GLIDE_ICI" target="_blank" rel="noopener noreferrer">
+              Accéder à l’application
+            </a>
+            <span class="micro-note">Simple, locale, utile.</span>
           </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="visual-glow"></div>
+
+          <div class="phone">
+            <div class="screen">
+              <img src="./app.png" alt="Capture de l’application Futur en Commun">
+            </div>
+          </div>
+
+          <div class="pill">Signaler · Soutenir · Agir</div>
         </div>
       </div>
     </section>
