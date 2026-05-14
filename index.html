@@ -5,215 +5,184 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Futur en Commun</title>
-  <meta name="description" content="Futur en Commun est une application éco-citoyenne locale pour signaler, soutenir et agir concrètement près de chez soi." />
+
+  <meta name="description" content="Futur en Commun est une application éco-citoyenne locale pour signaler, soutenir et participer à des actions concrètes près de chez soi." />
+
+  <link rel="canonical" href="https://futurencommun.fr/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="canonical" href="https://futurencommun.fr/">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+
     :root{
-      --bg:#f8f7f2;
-      --surface:#ffffff;
-      --green:#8FAE3E;
+      --bg:#FEF8F5;
+      --green:#9DB35C;
+      --green-dark:#556F25;
       --green-soft:#EEF5DE;
-      --green-deep:#6f8d2d;
-      --text:#2F2F2F;
-      --muted:#7E8478;
-      --line:#ECE8DC;
-      --shadow:0 18px 50px rgba(40, 46, 28, 0.08);
-      --radius-xl:34px;
-      --radius-lg:24px;
-      --radius-md:18px;
+      --text:#2D2D2D;
+      --muted:#7C7C7C;
+      --radius-xl:36px;
     }
 
     *{
-      box-sizing:border-box;
       margin:0;
       padding:0;
-    }
-
-    html, body{
-      width:100%;
-      min-height:100%;
+      box-sizing:border-box;
     }
 
     body{
-      font-family:'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family:'Inter', sans-serif;
+      background:var(--bg);
       color:var(--text);
-      background:
-        radial-gradient(circle at 0% 0%, rgba(143,174,62,0.10), transparent 26%),
-        radial-gradient(circle at 100% 100%, rgba(238,245,222,0.85), transparent 24%),
-        var(--bg);
-    }
-
-    img{
-      display:block;
-      max-width:100%;
     }
 
     .page{
-      max-width:1240px;
-      margin:0 auto;
-      padding:28px 28px 40px;
+      max-width:1280px;
+      margin:auto;
+      padding:28px;
       min-height:100vh;
       display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-
-    .topbar{
-      display:flex;
       align-items:center;
-      gap:16px;
-      margin-bottom:34px;
-    }
-
-    .topbar img{
-      width:88px;
-      height:88px;
-      object-fit:cover;
-      border-radius:22px;
-      background:#fff;
-      box-shadow:0 8px 22px rgba(143,174,62,0.10);
-      flex-shrink:0;
-    }
-
-    .brand{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-    }
-
-    .brand-title{
-      font-size:2rem;
-      font-weight:700;
-      letter-spacing:-0.04em;
-      line-height:1.05;
-    }
-
-    .brand-subtitle{
-      font-size:0.98rem;
-      color:var(--muted);
-      font-weight:500;
     }
 
     .hero-shell{
-      background:rgba(255,255,255,0.74);
-      border:1px solid rgba(255,255,255,0.7);
-      box-shadow:var(--shadow);
-      border-radius:var(--radius-xl);
-      padding:42px 40px;
+      position:relative;
+      overflow:hidden;
+      width:100%;
+      background:#FEF8F5;
+      border-radius:36px;
+      padding:48px;
+    }
+
+    /* BANDE VERTE */
+
+    .hero-shell::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      width:170px;
+      height:100%;
+      background:#556F25;
+      z-index:0;
     }
 
     .hero{
+      position:relative;
+      z-index:2;
       display:grid;
-      grid-template-columns:1.15fr 0.85fr;
+      grid-template-columns:1fr 1fr;
       align-items:center;
-      gap:34px;
+      gap:40px;
     }
 
-    .hero-left{
-      max-width:640px;
+    /* LOGO CERCLE */
+
+    .left-visual{
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .circle-logo{
+      width:300px;
+      height:300px;
+      border-radius:50%;
+      background:#AFC66A;
+      border:4px solid rgba(255,255,255,0.75);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    .circle-logo img{
+      width:72%;
+      object-fit:contain;
+    }
+
+    /* CONTENU */
+
+    .content{
+      max-width:560px;
     }
 
     .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      background:var(--green-soft);
-      color:var(--green-deep);
+      display:inline-block;
+      background:#EEF5DE;
+      color:#556F25;
+      padding:10px 18px;
       border-radius:999px;
-      padding:11px 17px;
-      font-size:0.82rem;
+      font-size:13px;
       font-weight:700;
       letter-spacing:0.08em;
       text-transform:uppercase;
-      margin-bottom:22px;
+      margin-bottom:24px;
     }
 
     h1{
-      font-size:clamp(2.5rem, 4.8vw, 4.6rem);
-      line-height:0.96;
+      font-size:72px;
+      line-height:0.95;
       letter-spacing:-0.06em;
+      margin-bottom:26px;
       font-weight:700;
-      max-width:10ch;
-      margin-bottom:20px;
     }
 
     .subtitle{
-      font-size:1.08rem;
-      line-height:1.75;
-      color:var(--muted);
-      max-width:33ch;
-      margin-bottom:28px;
+      font-size:20px;
+      line-height:1.7;
+      color:#707070;
+      margin-bottom:32px;
+      max-width:520px;
     }
 
     .cta-row{
       display:flex;
       align-items:center;
-      gap:14px;
+      gap:18px;
       flex-wrap:wrap;
+      margin-bottom:36px;
     }
 
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:58px;
-      padding:0 24px;
-      border-radius:18px;
+      background:#9DB35C;
+      color:white;
       text-decoration:none;
-      font-weight:700;
-      font-size:1rem;
-      transition:transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
+      padding:16px 26px;
+      border-radius:14px;
+      font-weight:600;
+      transition:0.2s ease;
     }
 
     .btn:hover{
-      transform:translateY(-1px);
-      filter:brightness(0.99);
-    }
-
-    .btn-primary{
-      background:var(--green);
-      color:#fff;
-      box-shadow:0 12px 24px rgba(143,174,62,0.18);
+      opacity:0.92;
     }
 
     .micro-note{
-      font-size:0.95rem;
-      color:var(--muted);
-      font-weight:500;
+      color:#7E8478;
+      font-size:15px;
     }
 
-    .hero-right{
+    /* MOCKUP */
+
+    .phone-wrap{
       display:flex;
       justify-content:center;
-      align-items:center;
       position:relative;
-    }
-
-    .visual-glow{
-      position:absolute;
-      width:92%;
-      height:82%;
-      border-radius:36px;
-      background:radial-gradient(circle, rgba(143,174,62,0.12) 0%, rgba(143,174,62,0.02) 58%, transparent 75%);
-      filter:blur(4px);
-      z-index:0;
     }
 
     .phone{
-      width:100%;
-      max-width:310px;
-      background:#fff;
-      border:7px solid #24301a;
-      border-radius:40px;
-      padding:16px 12px 14px;
+      width:310px;
+      background:white;
+      border:5px solid #2E421B;
+      border-radius:42px;
+      padding:14px;
       position:relative;
-      box-shadow:0 20px 42px rgba(36, 48, 26, 0.12);
-      z-index:1;
+      box-shadow:0 10px 24px rgba(0,0,0,0.08);
     }
 
     .phone::before{
@@ -222,173 +191,153 @@
       top:10px;
       left:50%;
       transform:translateX(-50%);
-      width:118px;
+      width:120px;
       height:28px;
-      background:#24301a;
+      background:#2E421B;
       border-radius:999px;
       z-index:3;
     }
 
     .screen{
       overflow:hidden;
-      border-radius:28px;
-      background:#fff;
+      border-radius:30px;
     }
 
     .screen img{
       width:100%;
-      height:auto;
-      object-fit:cover;
-      object-position:top center;
+      display:block;
     }
 
-    .pill{
-      position:absolute;
-      right:-8px;
-      bottom:28px;
-      background:rgba(255,255,255,0.92);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:12px 14px;
-      box-shadow:0 14px 30px rgba(0,0,0,0.06);
-      font-size:0.92rem;
-      color:var(--green-deep);
-      font-weight:600;
-      z-index:2;
+    /* SLOGAN */
+
+    .signature{
+      margin-top:38px;
     }
 
-    @media (max-width: 980px){
-      .page{
-        justify-content:flex-start;
-        padding-top:22px;
-      }
+    .signature img{
+      width:420px;
+      max-width:100%;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width:980px){
 
       .hero{
         grid-template-columns:1fr;
-        gap:28px;
       }
 
-      .hero-left{
-        max-width:none;
+      .hero-shell::before{
+        width:100%;
+        height:160px;
       }
 
-      h1{
-        max-width:none;
-      }
-
-      .subtitle{
-        max-width:none;
-      }
-
-      .hero-right{
+      .left-visual{
         justify-content:flex-start;
       }
 
-      .pill{
-        right:auto;
-        left:200px;
+      h1{
+        font-size:54px;
       }
+
     }
 
-    @media (max-width: 640px){
+    @media (max-width:640px){
+
       .page{
-        padding:18px 16px 28px;
-      }
-
-      .topbar{
-        gap:12px;
-        margin-bottom:24px;
-      }
-
-      .topbar img{
-        width:72px;
-        height:72px;
-        border-radius:18px;
-      }
-
-      .brand-title{
-        font-size:1.55rem;
-      }
-
-      .brand-subtitle{
-        font-size:0.92rem;
+        padding:16px;
       }
 
       .hero-shell{
-        padding:26px 22px;
+        padding:28px;
       }
 
       h1{
-        font-size:2.3rem;
-        line-height:1.02;
+        font-size:42px;
       }
 
       .subtitle{
-        font-size:1rem;
+        font-size:17px;
       }
 
-      .cta-row{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      .btn{
-        width:100%;
+      .circle-logo{
+        width:220px;
+        height:220px;
       }
 
       .phone{
-        max-width:270px;
+        width:260px;
       }
 
-      .pill{
-        position:static;
-        margin-top:14px;
-      }
     }
+
   </style>
 </head>
+
 <body>
+
   <main class="page">
-    <div class="topbar">
-      <img src="./logo.png" alt="Logo Futur en Commun">
-      <div class="brand">
-        <div class="brand-title">Futur en Commun</div>
-        <div class="brand-subtitle">Application éco-citoyenne locale</div>
-      </div>
-    </div>
 
     <section class="hero-shell">
-      <div class="hero">
-        <div class="hero-left">
-          <div class="eyebrow">🌱 Impact local et concret</div>
 
-          <h1>Agir localement pour un environnement plus propre.</h1>
+      <div class="hero">
+
+        <!-- GAUCHE -->
+
+        <div class="left-visual">
+
+          <div class="circle-logo">
+            <img src="./logo.png" alt="Futur en Commun">
+          </div>
+
+        </div>
+
+        <!-- DROITE -->
+
+        <div class="content">
+
+          <div class="eyebrow">
+            🌱 Impact local et concret
+          </div>
+
+          <h1>
+            Transformer les besoins locaux en actions concrètes.
+          </h1>
 
           <p class="subtitle">
-            Signalez, soutenez et participez à des actions concrètes près de chez vous.
+            Une application locale pour signaler, soutenir et participer à des actions utiles près de chez soi.
           </p>
 
           <div class="cta-row">
-            <a class="btn btn-primary" href="https://futurencommun.glide.page" target="_blank" rel="noopener noreferrer">
+
+            <a class="btn"
+               href="https://futurencommun.glide.page"
+               target="_blank"
+               rel="noopener noreferrer">
+
               Accéder à l’application
+
             </a>
-            <span class="micro-note">Simple, locale, utile.</span>
-          </div>
-        </div>
 
-        <div class="hero-right">
-          <div class="visual-glow"></div>
+            <span class="micro-note">
+              Simple • Local • Concret
+            </span>
 
-          <div class="phone">
-            <div class="screen">
-              <img src="./app.png" alt="Capture de l’application Futur en Commun">
-            </div>
           </div>
 
-          <div class="pill">Signaler · Soutenir · Agir</div>
+          <!-- SLOGAN IMAGE -->
+
+          <div class="signature">
+            <img src="./slogan.png" alt="Un engagement simple, local et responsable">
+          </div>
+
         </div>
+
       </div>
+
     </section>
+
   </main>
+
 </body>
 </html>
