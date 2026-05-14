@@ -2,18 +2,14 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Futur en Commun</title>
 
-  <meta name="description" content="Futur en Commun est une application éco-citoyenne locale pour signaler, soutenir et participer à des actions concrètes près de chez soi." />
+  <meta name="description"
+        content="Futur en Commun est une application éco-citoyenne locale pour signaler, soutenir et participer à des actions concrètes près de chez soi."/>
 
   <link rel="canonical" href="https://futurencommun.fr/" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
 
@@ -23,8 +19,7 @@
       --green-dark:#556F25;
       --green-soft:#EEF5DE;
       --text:#2D2D2D;
-      --muted:#7C7C7C;
-      --radius-xl:36px;
+      --muted:#767676;
     }
 
     *{
@@ -34,7 +29,7 @@
     }
 
     body{
-      font-family:'Inter', sans-serif;
+      font-family:'Aptos', sans-serif;
       background:var(--bg);
       color:var(--text);
     }
@@ -42,19 +37,19 @@
     .page{
       max-width:1280px;
       margin:auto;
-      padding:28px;
       min-height:100vh;
+      padding:28px;
       display:flex;
       align-items:center;
     }
 
     .hero-shell{
-      position:relative;
-      overflow:hidden;
       width:100%;
       background:#FEF8F5;
       border-radius:36px;
-      padding:48px;
+      overflow:hidden;
+      position:relative;
+      padding:54px;
     }
 
     /* BANDE VERTE */
@@ -64,7 +59,7 @@
       position:absolute;
       left:0;
       top:0;
-      width:170px;
+      width:140px;
       height:100%;
       background:#556F25;
       z-index:0;
@@ -76,13 +71,12 @@
       display:grid;
       grid-template-columns:1fr 1fr;
       align-items:center;
-      gap:40px;
+      gap:48px;
     }
 
-    /* LOGO CERCLE */
+    /* LOGO */
 
-    .left-visual{
-      position:relative;
+    .left-side{
       display:flex;
       justify-content:center;
       align-items:center;
@@ -93,29 +87,31 @@
       height:300px;
       border-radius:50%;
       background:#AFC66A;
-      border:4px solid rgba(255,255,255,0.75);
+      border:4px solid rgba(255,255,255,0.7);
       display:flex;
-      align-items:center;
       justify-content:center;
-      box-shadow:0 10px 25px rgba(0,0,0,0.05);
+      align-items:center;
+      overflow:hidden;
+      box-shadow:0 10px 24px rgba(0,0,0,0.04);
     }
 
     .circle-logo img{
-      width:72%;
+      width:68%;
       object-fit:contain;
+      background:transparent;
     }
 
     /* CONTENU */
 
     .content{
-      max-width:560px;
+      max-width:580px;
     }
 
     .eyebrow{
       display:inline-block;
       background:#EEF5DE;
       color:#556F25;
-      padding:10px 18px;
+      padding:11px 18px;
       border-radius:999px;
       font-size:13px;
       font-weight:700;
@@ -125,19 +121,19 @@
     }
 
     h1{
-      font-size:72px;
-      line-height:0.95;
-      letter-spacing:-0.06em;
-      margin-bottom:26px;
+      font-size:78px;
+      line-height:0.92;
+      letter-spacing:-0.07em;
       font-weight:700;
+      margin-bottom:28px;
     }
 
     .subtitle{
-      font-size:20px;
+      font-size:21px;
       line-height:1.7;
-      color:#707070;
-      margin-bottom:32px;
-      max-width:520px;
+      color:var(--muted);
+      margin-bottom:34px;
+      max-width:540px;
     }
 
     .cta-row{
@@ -145,7 +141,7 @@
       align-items:center;
       gap:18px;
       flex-wrap:wrap;
-      margin-bottom:36px;
+      margin-bottom:42px;
     }
 
     .btn{
@@ -154,6 +150,7 @@
       text-decoration:none;
       padding:16px 26px;
       border-radius:14px;
+      font-size:17px;
       font-weight:600;
       transition:0.2s ease;
     }
@@ -163,60 +160,16 @@
     }
 
     .micro-note{
-      color:#7E8478;
+      color:#7C7C7C;
       font-size:15px;
-    }
-
-    /* MOCKUP */
-
-    .phone-wrap{
-      display:flex;
-      justify-content:center;
-      position:relative;
-    }
-
-    .phone{
-      width:310px;
-      background:white;
-      border:5px solid #2E421B;
-      border-radius:42px;
-      padding:14px;
-      position:relative;
-      box-shadow:0 10px 24px rgba(0,0,0,0.08);
-    }
-
-    .phone::before{
-      content:"";
-      position:absolute;
-      top:10px;
-      left:50%;
-      transform:translateX(-50%);
-      width:120px;
-      height:28px;
-      background:#2E421B;
-      border-radius:999px;
-      z-index:3;
-    }
-
-    .screen{
-      overflow:hidden;
-      border-radius:30px;
-    }
-
-    .screen img{
-      width:100%;
-      display:block;
     }
 
     /* SLOGAN */
 
-    .signature{
-      margin-top:38px;
-    }
-
     .signature img{
-      width:420px;
+      width:430px;
       max-width:100%;
+      opacity:0.95;
     }
 
     /* RESPONSIVE */
@@ -232,12 +185,12 @@
         height:160px;
       }
 
-      .left-visual{
-        justify-content:flex-start;
+      h1{
+        font-size:56px;
       }
 
-      h1{
-        font-size:54px;
+      .left-side{
+        justify-content:flex-start;
       }
 
     }
@@ -257,16 +210,12 @@
       }
 
       .subtitle{
-        font-size:17px;
+        font-size:18px;
       }
 
       .circle-logo{
         width:220px;
         height:220px;
-      }
-
-      .phone{
-        width:260px;
       }
 
     }
@@ -284,7 +233,7 @@
 
         <!-- GAUCHE -->
 
-        <div class="left-visual">
+        <div class="left-side">
 
           <div class="circle-logo">
             <img src="./logo.png" alt="Futur en Commun">
@@ -312,8 +261,7 @@
 
             <a class="btn"
                href="https://futurencommun.glide.page"
-               target="_blank"
-               rel="noopener noreferrer">
+               target="_blank">
 
               Accéder à l’application
 
@@ -325,10 +273,11 @@
 
           </div>
 
-          <!-- SLOGAN IMAGE -->
+          <!-- SLOGAN -->
 
           <div class="signature">
-            <img src="./Slogan.png" alt="Un engagement simple, local et responsable">
+            <img src="./Slogan.png"
+                 alt="Un engagement simple, local et responsable">
           </div>
 
         </div>
