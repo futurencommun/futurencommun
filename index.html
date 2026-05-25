@@ -12,7 +12,7 @@
 
   <link rel="canonical" href="https://futurencommun.fr/" />
 
-  <!-- POLICES -->
+  <!-- GOOGLE FONT -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,12 +22,13 @@
   <style>
 
     :root{
-      --bg:#FEF8F5;
+      --bg:#FDF9F6;
       --green:#9DB35C;
       --green-dark:#556F25;
       --green-soft:#EEF5DE;
       --text:#2D2D2D;
-      --muted:#767676;
+      --muted:#707070;
+      --white:#FFFFFF;
     }
 
     *{
@@ -40,75 +41,78 @@
       font-family:'Plus Jakarta Sans', sans-serif;
       background:var(--bg);
       color:var(--text);
-      overflow:hidden;
+      overflow-x:hidden;
     }
 
     .page{
-      max-width:1380px;
-      margin:auto;
+      width:100%;
+      overflow:hidden;
+    }
+
+    /* HERO */
+
+    .hero{
+      position:relative;
       min-height:100vh;
-      padding:26px;
       display:flex;
       align-items:center;
-    }
-
-    .hero-shell{
-      width:100%;
-      position:relative;
+      padding:40px 70px;
       overflow:hidden;
-      padding:42px 52px;
     }
 
-    /* BANDE VERTE */
+    /* BARRE VERTE */
 
-    .hero-shell::before{
+    .hero::before{
       content:"";
       position:absolute;
       left:0;
       top:0;
-      width:130px;
+      width:150px;
       height:100%;
       background:#556F25;
-      border-radius:0 0 32px 0;
       z-index:0;
     }
 
-    .hero{
+    .hero-grid{
+      width:100%;
+      max-width:1450px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:0.9fr 1.1fr 0.9fr;
+      align-items:center;
+      gap:50px;
       position:relative;
       z-index:2;
-      display:grid;
-      grid-template-columns:0.9fr 1.1fr;
-      align-items:center;
-      gap:46px;
     }
 
-    /* GAUCHE */
+    /* LOGO */
 
-    .left-side{
+    .logo-side{
       display:flex;
       justify-content:center;
       align-items:center;
     }
 
-    .circle-logo{
-      width:280px;
-      height:280px;
+    .logo-circle{
+      width:320px;
+      height:320px;
       border-radius:50%;
-      background:#AEC668;
-      border:5px solid rgba(255,255,255,0.7);
+      background:#AFC66A;
       display:flex;
       justify-content:center;
       align-items:center;
       overflow:hidden;
-      box-shadow:0 12px 28px rgba(0,0,0,0.05);
+      border:6px solid rgba(255,255,255,0.75);
+      box-shadow:0 20px 40px rgba(0,0,0,0.08);
+      position:relative;
     }
 
-    .circle-logo img{
+    .logo-circle img{
       width:82%;
       object-fit:contain;
     }
 
-    /* CONTENU */
+    /* TEXTE */
 
     .content{
       max-width:690px;
@@ -130,22 +134,20 @@
     }
 
     h1{
-      font-size:66px;
-      line-height:0.96;
+      font-size:72px;
+      line-height:0.94;
       letter-spacing:-0.07em;
       font-weight:800;
-      color:#2C2C2C;
       margin-bottom:28px;
-      max-width:760px;
+      color:#2D2D2D;
     }
 
     .subtitle{
       font-size:21px;
-      line-height:1.65;
-      color:#6F6F6F;
+      line-height:1.7;
+      color:#6E6E6E;
       margin-bottom:34px;
       max-width:620px;
-      font-weight:400;
     }
 
     /* CTA */
@@ -155,99 +157,268 @@
       align-items:center;
       gap:18px;
       flex-wrap:wrap;
-      margin-bottom:34px;
+      margin-bottom:32px;
     }
 
     .btn{
-      background:#9DB35C;
+      background:#94AF42;
       color:white;
       text-decoration:none;
-      padding:17px 30px;
-      border-radius:16px;
-      font-size:17px;
+      padding:18px 30px;
+      border-radius:18px;
+      font-size:18px;
       font-weight:700;
       transition:0.2s ease;
-      box-shadow:0 8px 20px rgba(157,179,92,0.20);
+      box-shadow:0 8px 20px rgba(148,175,66,0.22);
     }
 
     .btn:hover{
-      transform:translateY(-1px);
+      transform:translateY(-2px);
       opacity:0.95;
     }
 
     .micro-note{
+      color:#7B7B7B;
       font-size:15px;
-      color:#7A7A7A;
     }
 
     /* SIGNATURE */
 
+    .signature{
+      margin-top:12px;
+    }
+
     .signature img{
-      width:430px;
+      width:420px;
       max-width:100%;
       opacity:0.95;
     }
 
+    /* MOCKUP TELEPHONE */
+
+    .phone-side{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .phone-side img{
+      width:350px;
+      max-width:100%;
+      filter:drop-shadow(0 20px 30px rgba(0,0,0,0.12));
+      transform:rotate(4deg);
+    }
+
+    /* COMMENT CA MARCHE */
+
+    .how{
+      padding:90px 70px;
+      background:white;
+    }
+
+    .how-container{
+      max-width:1350px;
+      margin:auto;
+    }
+
+    .how h2{
+      text-align:center;
+      font-size:48px;
+      margin-bottom:60px;
+      letter-spacing:-0.05em;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:30px;
+    }
+
+    .step{
+      background:#FAF8F2;
+      border-radius:28px;
+      padding:34px;
+      min-height:260px;
+    }
+
+    .step-number{
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      background:#9DB35C;
+      color:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      margin-bottom:24px;
+      font-size:20px;
+    }
+
+    .step h3{
+      font-size:30px;
+      margin-bottom:16px;
+    }
+
+    .step p{
+      font-size:17px;
+      line-height:1.7;
+      color:#6F6F6F;
+    }
+
+    /* IMPACT */
+
+    .impact{
+      padding:0 70px 90px;
+      background:white;
+    }
+
+    .impact-container{
+      max-width:1350px;
+      margin:auto;
+      background:#F8F6EF;
+      border-radius:28px;
+      padding:38px;
+      display:grid;
+      grid-template-columns:1.2fr repeat(4,1fr);
+      gap:20px;
+      align-items:center;
+    }
+
+    .impact-title{
+      font-size:38px;
+      line-height:1.1;
+      font-weight:700;
+    }
+
+    .stat{
+      text-align:center;
+    }
+
+    .stat-number{
+      font-size:42px;
+      font-weight:800;
+      color:#556F25;
+      margin-bottom:8px;
+    }
+
+    .stat-label{
+      color:#6F6F6F;
+      font-size:15px;
+    }
+
+    /* PARTENAIRE */
+
+    .partner{
+      padding:0 70px 100px;
+      background:white;
+    }
+
+    .partner-box{
+      max-width:1350px;
+      margin:auto;
+      background:#EEF5DE;
+      border-radius:28px;
+      padding:44px;
+      text-align:center;
+    }
+
+    .partner-box h3{
+      font-size:42px;
+      margin-bottom:18px;
+      line-height:1.1;
+    }
+
+    .partner-box p{
+      font-size:20px;
+      color:#6E6E6E;
+      margin-bottom:28px;
+    }
+
+    .partner-btn{
+      display:inline-block;
+      background:#556F25;
+      color:white;
+      text-decoration:none;
+      padding:18px 30px;
+      border-radius:16px;
+      font-weight:700;
+      font-size:17px;
+    }
+
     /* RESPONSIVE */
 
-    @media (max-width:1080px){
+    @media (max-width:1200px){
 
-      body{
-        overflow:auto;
+      .hero-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+
+      .content{
+        margin:auto;
+      }
+
+      .cta-row{
+        justify-content:center;
       }
 
       .hero{
+        padding:70px 30px;
+      }
+
+      .steps{
         grid-template-columns:1fr;
-        gap:40px;
       }
 
-      .hero-shell::before{
-        width:100%;
-        height:120px;
-      }
-
-      .left-side{
-        justify-content:flex-start;
+      .impact-container{
+        grid-template-columns:1fr 1fr;
       }
 
       h1{
-        font-size:52px;
+        font-size:58px;
       }
 
     }
 
-    @media (max-width:640px){
+    @media (max-width:768px){
 
-      .page{
-        padding:18px;
+      .hero::before{
+        width:100%;
+        height:120px;
       }
 
-      .hero-shell{
-        padding:34px 24px;
+      .logo-circle{
+        width:240px;
+        height:240px;
       }
 
-      .circle-logo{
-        width:220px;
-        height:220px;
+      .phone-side img{
+        width:260px;
       }
 
       h1{
-        font-size:40px;
+        font-size:42px;
         line-height:1.02;
       }
 
       .subtitle{
         font-size:18px;
-        line-height:1.6;
+      }
+
+      .how,
+      .impact,
+      .partner{
+        padding-left:20px;
+        padding-right:20px;
+      }
+
+      .impact-container{
+        grid-template-columns:1fr;
       }
 
       .btn{
         width:100%;
-        text-align:center;
-      }
-
-      .signature img{
-        width:300px;
       }
 
     }
@@ -260,15 +431,17 @@
 
   <main class="page">
 
-    <section class="hero-shell">
+    <!-- HERO -->
 
-      <div class="hero">
+    <section class="hero">
 
-        <!-- GAUCHE -->
+      <div class="hero-grid">
 
-        <div class="left-side">
+        <!-- LOGO -->
 
-          <div class="circle-logo">
+        <div class="logo-side">
+
+          <div class="logo-circle">
 
             <img src="./logo.png"
                  alt="Futur en Commun">
@@ -277,7 +450,7 @@
 
         </div>
 
-        <!-- DROITE -->
+        <!-- TEXTE -->
 
         <div class="content">
 
@@ -299,7 +472,7 @@
                href="https://futurencommun.glide.page"
                target="_blank">
 
-              Accéder à l’application
+              Accéder à l’application →
 
             </a>
 
@@ -309,8 +482,6 @@
 
           </div>
 
-          <!-- SLOGAN -->
-
           <div class="signature">
 
             <img src="./Slogan.png"
@@ -319,6 +490,138 @@
           </div>
 
         </div>
+
+        <!-- TELEPHONE -->
+
+        <div class="phone-side">
+
+          <img src="./phone-home.png"
+               alt="Application Futur en Commun">
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- COMMENT CA MARCHE -->
+
+    <section class="how">
+
+      <div class="how-container">
+
+        <h2>Comment ça marche ?</h2>
+
+        <div class="steps">
+
+          <div class="step">
+
+            <div class="step-number">1</div>
+
+            <h3>Signaler</h3>
+
+            <p>
+              Repérez une zone dégradée et signalez-la en quelques secondes avec une photo et une localisation.
+            </p>
+
+          </div>
+
+          <div class="step">
+
+            <div class="step-number">2</div>
+
+            <h3>Soutenir</h3>
+
+            <p>
+              Les citoyens, commerces et partenaires peuvent contribuer à une cagnotte locale afin de financer une action concrète.
+            </p>
+
+          </div>
+
+          <div class="step">
+
+            <div class="step-number">3</div>
+
+            <h3>Agir</h3>
+
+            <p>
+              Des missions rémunérées permettent ensuite d’agir concrètement pour améliorer durablement le cadre de vie.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- IMPACT -->
+
+    <section class="impact">
+
+      <div class="impact-container">
+
+        <div class="impact-title">
+          Un impact local, concret et durable.
+        </div>
+
+        <div class="stat">
+
+          <div class="stat-number">2 450+</div>
+
+          <div class="stat-label">Déchets signalés</div>
+
+        </div>
+
+        <div class="stat">
+
+          <div class="stat-number">1 230+</div>
+
+          <div class="stat-label">Citoyens mobilisés</div>
+
+        </div>
+
+        <div class="stat">
+
+          <div class="stat-number">560+</div>
+
+          <div class="stat-label">Actions réalisées</div>
+
+        </div>
+
+        <div class="stat">
+
+          <div class="stat-number">35+</div>
+
+          <div class="stat-label">Villes engagées</div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PARTENAIRES -->
+
+    <section class="partner">
+
+      <div class="partner-box">
+
+        <h3>
+          Vous êtes une collectivité, une entreprise ou un festival ?
+        </h3>
+
+        <p>
+          Construisons ensemble des actions locales concrètes autour de l’environnement et de la mobilisation citoyenne.
+        </p>
+
+        <a class="partner-btn"
+           href="mailto:contact@futurencommun.fr">
+
+          Devenir partenaire →
+
+        </a>
 
       </div>
 
