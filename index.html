@@ -8,16 +8,16 @@
   <title>Futur en Commun</title>
 
   <meta name="description"
-        content="Futur en Commun est une application éco-citoyenne locale pour signaler, soutenir et participer à des actions concrètes près de chez soi."/>
+        content="Futur en Commun est une application citoyenne locale permettant de signaler des déchets et de transformer les besoins visibles en actions concrètes."/>
 
   <link rel="canonical" href="https://futurencommun.fr/" />
 
-  <!-- POLICE -->
+  <!-- POLICES -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
 
@@ -57,7 +57,7 @@
       border-radius:36px;
       overflow:hidden;
       position:relative;
-      padding:54px;
+      padding:60px;
     }
 
     /* BANDE VERTE */
@@ -77,9 +77,9 @@
       position:relative;
       z-index:2;
       display:grid;
-      grid-template-columns:1fr 1fr;
+      grid-template-columns:1fr 1.1fr;
       align-items:center;
-      gap:48px;
+      gap:60px;
     }
 
     /* PARTIE GAUCHE */
@@ -91,8 +91,8 @@
     }
 
     .circle-logo{
-      width:270px;
-      height:270px;
+      width:280px;
+      height:280px;
       border-radius:50%;
       background:#AFC66A;
       border:4px solid rgba(255,255,255,0.7);
@@ -112,7 +112,7 @@
     /* CONTENU */
 
     .content{
-      max-width:580px;
+      max-width:620px;
     }
 
     .eyebrow{
@@ -125,23 +125,25 @@
       font-weight:700;
       letter-spacing:0.08em;
       text-transform:uppercase;
-      margin-bottom:24px;
+      margin-bottom:28px;
     }
 
     h1{
-      font-size:78px;
-      line-height:0.92;
-      letter-spacing:-0.07em;
-      font-weight:800;
-      margin-bottom:28px;
+      font-size:64px;
+      line-height:1.02;
+      letter-spacing:-0.05em;
+      font-weight:700;
+      margin-bottom:26px;
+      color:#2D2D2D;
     }
 
     .subtitle{
       font-size:21px;
       line-height:1.7;
-      color:var(--muted);
+      color:#707070;
       margin-bottom:34px;
       max-width:540px;
+      font-weight:400;
     }
 
     /* CTA */
@@ -151,22 +153,24 @@
       align-items:center;
       gap:18px;
       flex-wrap:wrap;
-      margin-bottom:42px;
+      margin-bottom:46px;
     }
 
     .btn{
       background:#9DB35C;
       color:white;
       text-decoration:none;
-      padding:16px 26px;
-      border-radius:14px;
+      padding:16px 28px;
+      border-radius:16px;
       font-size:17px;
       font-weight:600;
       transition:0.2s ease;
+      box-shadow:0 6px 18px rgba(157,179,92,0.18);
     }
 
     .btn:hover{
       opacity:0.92;
+      transform:translateY(-1px);
     }
 
     .micro-note{
@@ -177,9 +181,9 @@
     /* SLOGAN */
 
     .signature img{
-      width:430px;
+      width:440px;
       max-width:100%;
-      opacity:0.95;
+      opacity:0.92;
     }
 
     /* RESPONSIVE */
@@ -188,19 +192,20 @@
 
       .hero{
         grid-template-columns:1fr;
+        gap:42px;
       }
 
       .hero-shell::before{
         width:100%;
-        height:160px;
-      }
-
-      h1{
-        font-size:56px;
+        height:150px;
       }
 
       .left-side{
         justify-content:flex-start;
+      }
+
+      h1{
+        font-size:52px;
       }
 
     }
@@ -212,15 +217,17 @@
       }
 
       .hero-shell{
-        padding:28px;
+        padding:32px 26px;
       }
 
       h1{
-        font-size:42px;
+        font-size:40px;
+        line-height:1.08;
       }
 
       .subtitle{
         font-size:18px;
+        line-height:1.6;
       }
 
       .circle-logo{
@@ -228,9 +235,19 @@
         height:220px;
       }
 
+      .eyebrow{
+        font-size:11px;
+      }
+
+      .btn{
+        width:100%;
+        text-align:center;
+      }
+
     }
 
   </style>
+
 </head>
 
 <body>
@@ -260,11 +277,11 @@
           </div>
 
           <h1>
-            Transformer les besoins locaux en actions concrètes.
+            Mobiliser les citoyens pour améliorer concrètement leur environnement.
           </h1>
 
           <p class="subtitle">
-            Une application locale pour signaler, soutenir et participer à des actions utiles près de chez soi.
+            Une application citoyenne permettant de signaler des déchets, soutenir des actions locales et participer concrètement à l’amélioration du cadre de vie.
           </p>
 
           <div class="cta-row">
@@ -278,7 +295,7 @@
             </a>
 
             <span class="micro-note">
-              Simple • Local • Concret
+              Simple • Local • Responsable
             </span>
 
           </div>
@@ -286,8 +303,10 @@
           <!-- SLOGAN -->
 
           <div class="signature">
+
             <img src="./Slogan.png"
                  alt="Un engagement simple, local et responsable">
+
           </div>
 
         </div>
