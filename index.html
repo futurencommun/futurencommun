@@ -12,8 +12,6 @@
 
   <link rel="canonical" href="https://futurencommun.fr/" />
 
-  <!-- GOOGLE FONT -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -60,8 +58,6 @@
       overflow:hidden;
     }
 
-    /* BARRE VERTE */
-
     .hero::before{
       content:"";
       position:absolute;
@@ -94,8 +90,8 @@
     }
 
     .logo-circle{
-      width:320px;
-      height:320px;
+      width:330px;
+      height:330px;
       border-radius:50%;
       background:#AFC66A;
       display:flex;
@@ -104,7 +100,6 @@
       overflow:hidden;
       border:6px solid rgba(255,255,255,0.75);
       box-shadow:0 20px 40px rgba(0,0,0,0.08);
-      position:relative;
     }
 
     .logo-circle img{
@@ -112,10 +107,10 @@
       object-fit:contain;
     }
 
-    /* TEXTE */
+    /* CONTENU */
 
     .content{
-      max-width:690px;
+      max-width:720px;
     }
 
     .eyebrow{
@@ -134,11 +129,11 @@
     }
 
     h1{
-      font-size:72px;
-      line-height:0.94;
+      font-size:64px;
+      line-height:0.96;
       letter-spacing:-0.07em;
       font-weight:800;
-      margin-bottom:28px;
+      margin-bottom:26px;
       color:#2D2D2D;
     }
 
@@ -155,21 +150,24 @@
     .cta-row{
       display:flex;
       align-items:center;
-      gap:18px;
-      flex-wrap:wrap;
-      margin-bottom:32px;
+      width:100%;
     }
 
     .btn{
       background:#94AF42;
       color:white;
       text-decoration:none;
-      padding:18px 30px;
+      padding:20px 34px;
       border-radius:18px;
-      font-size:18px;
+      font-size:19px;
       font-weight:700;
       transition:0.2s ease;
       box-shadow:0 8px 20px rgba(148,175,66,0.22);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:420px;
+      max-width:100%;
     }
 
     .btn:hover{
@@ -177,24 +175,19 @@
       opacity:0.95;
     }
 
-    .micro-note{
-      color:#7B7B7B;
-      font-size:15px;
-    }
-
     /* SIGNATURE */
 
     .signature{
-      margin-top:12px;
+      margin-top:28px;
     }
 
     .signature img{
-      width:420px;
+      width:430px;
       max-width:100%;
       opacity:0.95;
     }
 
-    /* MOCKUP TELEPHONE */
+    /* TELEPHONE */
 
     .phone-side{
       display:flex;
@@ -203,7 +196,7 @@
     }
 
     .phone-side img{
-      width:350px;
+      width:360px;
       max-width:100%;
       filter:drop-shadow(0 20px 30px rgba(0,0,0,0.12));
       transform:rotate(4deg);
@@ -266,7 +259,7 @@
       color:#6F6F6F;
     }
 
-    /* PARTENAIRE */
+    /* CONTACT */
 
     .partner{
       padding:0 70px 100px;
@@ -277,31 +270,33 @@
       max-width:1350px;
       margin:auto;
       background:#EEF5DE;
-      border-radius:28px;
-      padding:44px;
+      border-radius:32px;
+      padding:54px;
       text-align:center;
     }
 
     .partner-box h3{
-      font-size:42px;
-      margin-bottom:18px;
-      line-height:1.1;
+      font-size:58px;
+      line-height:1;
+      letter-spacing:-0.05em;
+      margin-bottom:24px;
     }
 
     .partner-box p{
-      font-size:20px;
+      font-size:22px;
       color:#6E6E6E;
-      margin-bottom:28px;
+      margin-bottom:34px;
+      line-height:1.6;
     }
 
-    /* FORMULAIRE */
+    /* FORM */
 
     .contact-form{
-      max-width:700px;
+      max-width:760px;
       margin:30px auto 0;
       display:flex;
       flex-direction:column;
-      gap:16px;
+      gap:18px;
     }
 
     .contact-form input,
@@ -309,15 +304,15 @@
       width:100%;
       border:none;
       border-radius:18px;
-      padding:18px 20px;
-      font-size:16px;
+      padding:22px 24px;
+      font-size:18px;
       font-family:'Plus Jakarta Sans', sans-serif;
       background:white;
       color:#2D2D2D;
     }
 
     .contact-form textarea{
-      min-height:140px;
+      min-height:180px;
       resize:vertical;
     }
 
@@ -327,15 +322,16 @@
     }
 
     .contact-form button{
-      background:#556F25;
+      background:#94AF42;
       color:white;
       border:none;
       border-radius:18px;
-      padding:18px 28px;
-      font-size:17px;
+      padding:22px 28px;
+      font-size:20px;
       font-weight:700;
       cursor:pointer;
       transition:0.2s ease;
+      box-shadow:0 8px 20px rgba(148,175,66,0.20);
     }
 
     .contact-form button:hover{
@@ -369,7 +365,11 @@
       }
 
       h1{
-        font-size:58px;
+        font-size:54px;
+      }
+
+      .partner-box h3{
+        font-size:44px;
       }
 
     }
@@ -403,6 +403,14 @@
       .partner{
         padding-left:20px;
         padding-right:20px;
+      }
+
+      .partner-box{
+        padding:34px 22px;
+      }
+
+      .partner-box h3{
+        font-size:34px;
       }
 
       .btn{
@@ -463,10 +471,6 @@
               Accéder à l’application →
 
             </a>
-
-            <span class="micro-note">
-              Simple • Local • Responsable
-            </span>
 
           </div>
 
@@ -551,11 +555,11 @@
       <div class="partner-box">
 
         <h3>
-          Vous êtes une collectivité, une entreprise, un festival ou une association ?
+          Construisons ensemble des actions locales concrètes.
         </h3>
 
         <p>
-          Construisons ensemble des actions locales concrètes autour de l’environnement et de la mobilisation citoyenne.
+          Collectivités, entreprises, commerces, festivals, associations ou citoyens : échangeons autour de collaborations locales et environnementales.
         </p>
 
         <form action="https://formspree.io/f/mojbngak"
