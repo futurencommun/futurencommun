@@ -266,47 +266,6 @@
       color:#6F6F6F;
     }
 
-    /* IMPACT */
-
-    .impact{
-      padding:0 70px 90px;
-      background:white;
-    }
-
-    .impact-container{
-      max-width:1350px;
-      margin:auto;
-      background:#F8F6EF;
-      border-radius:28px;
-      padding:38px;
-      display:grid;
-      grid-template-columns:1.2fr repeat(4,1fr);
-      gap:20px;
-      align-items:center;
-    }
-
-    .impact-title{
-      font-size:38px;
-      line-height:1.1;
-      font-weight:700;
-    }
-
-    .stat{
-      text-align:center;
-    }
-
-    .stat-number{
-      font-size:42px;
-      font-weight:800;
-      color:#556F25;
-      margin-bottom:8px;
-    }
-
-    .stat-label{
-      color:#6F6F6F;
-      font-size:15px;
-    }
-
     /* PARTENAIRE */
 
     .partner{
@@ -335,15 +294,53 @@
       margin-bottom:28px;
     }
 
-    .partner-btn{
-      display:inline-block;
+    /* FORMULAIRE */
+
+    .contact-form{
+      max-width:700px;
+      margin:30px auto 0;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .contact-form input,
+    .contact-form textarea{
+      width:100%;
+      border:none;
+      border-radius:18px;
+      padding:18px 20px;
+      font-size:16px;
+      font-family:'Plus Jakarta Sans', sans-serif;
+      background:white;
+      color:#2D2D2D;
+    }
+
+    .contact-form textarea{
+      min-height:140px;
+      resize:vertical;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus{
+      outline:2px solid #9DB35C;
+    }
+
+    .contact-form button{
       background:#556F25;
       color:white;
-      text-decoration:none;
-      padding:18px 30px;
-      border-radius:16px;
-      font-weight:700;
+      border:none;
+      border-radius:18px;
+      padding:18px 28px;
       font-size:17px;
+      font-weight:700;
+      cursor:pointer;
+      transition:0.2s ease;
+    }
+
+    .contact-form button:hover{
+      opacity:0.94;
+      transform:translateY(-1px);
     }
 
     /* RESPONSIVE */
@@ -369,10 +366,6 @@
 
       .steps{
         grid-template-columns:1fr;
-      }
-
-      .impact-container{
-        grid-template-columns:1fr 1fr;
       }
 
       h1{
@@ -407,14 +400,9 @@
       }
 
       .how,
-      .impact,
       .partner{
         padding-left:20px;
         padding-right:20px;
-      }
-
-      .impact-container{
-        grid-template-columns:1fr;
       }
 
       .btn{
@@ -556,72 +544,43 @@
 
     </section>
 
-    <!-- IMPACT -->
-
-    <section class="impact">
-
-      <div class="impact-container">
-
-        <div class="impact-title">
-          Un impact local, concret et durable.
-        </div>
-
-        <div class="stat">
-
-          <div class="stat-number">2 450+</div>
-
-          <div class="stat-label">Déchets signalés</div>
-
-        </div>
-
-        <div class="stat">
-
-          <div class="stat-number">1 230+</div>
-
-          <div class="stat-label">Citoyens mobilisés</div>
-
-        </div>
-
-        <div class="stat">
-
-          <div class="stat-number">560+</div>
-
-          <div class="stat-label">Actions réalisées</div>
-
-        </div>
-
-        <div class="stat">
-
-          <div class="stat-number">35+</div>
-
-          <div class="stat-label">Villes engagées</div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- PARTENAIRES -->
+    <!-- CONTACT -->
 
     <section class="partner">
 
       <div class="partner-box">
 
         <h3>
-          Vous êtes une collectivité, une entreprise ou un festival ?
+          Vous êtes une collectivité, une entreprise, un festival ou une association ?
         </h3>
 
         <p>
           Construisons ensemble des actions locales concrètes autour de l’environnement et de la mobilisation citoyenne.
         </p>
 
-        <a class="partner-btn"
-           href="mailto:contact@futurencommun.fr">
+        <form action="https://formspree.io/f/mojbngak"
+              method="POST"
+              class="contact-form">
 
-          Devenir partenaire →
+          <input type="text"
+                 name="name"
+                 placeholder="Votre nom"
+                 required>
 
-        </a>
+          <input type="email"
+                 name="email"
+                 placeholder="Votre email"
+                 required>
+
+          <textarea name="message"
+                    placeholder="Votre message"
+                    required></textarea>
+
+          <button type="submit">
+            Nous contacter
+          </button>
+
+        </form>
 
       </div>
 
