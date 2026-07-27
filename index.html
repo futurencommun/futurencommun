@@ -181,11 +181,18 @@
     }
 
     .phone-side img{
-      width:360px;
-      max-width:100%;
-      object-fit:contain;
-      filter:drop-shadow(0 25px 35px rgba(0,0,0,0.14));
-      transform:rotate(4deg);
+        width:400px;
+        max-width:100%;
+        height:auto;
+        display:block;
+        object-fit:contain;
+    
+        transform:translateZ(0) rotate(4deg);
+    
+        filter:drop-shadow(0 25px 35px rgba(0,0,0,.14));
+    
+        backface-visibility:hidden;
+        -webkit-backface-visibility:hidden;
     }
 
     /* COMMENT CA MARCHE */
