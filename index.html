@@ -1,497 +1,654 @@
+
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Futur en Commun</title>
+  <title>Futur en Commun | Chaque geste compte</title>
 
-  <meta name="description"
-        content="Futur en Commun transforme les signalements de déchets en actions locales rémunérées grâce à des cagnottes participatives et une mobilisation citoyenne locale."/>
+  <meta name="description" content="Futur en Commun récompense l'engagement citoyen pour l'environnement. Ramassez des déchets, cumulez des points et échangez-les contre des avantages chez nos commerçants partenaires.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-
-    :root{
-      --bg:#FCF8F3;
-      --green:#95B23D;
-      --green-dark:#556F25;
-      --green-soft:#EEF5DE;
-      --text:#2D2D2D;
-      --muted:#6D6D6D;
+    :root {
+      --bg: #FCF8F3;
+      --green: #95B23D;
+      --green-dark: #556F25;
+      --green-soft: #EEF5DE;
+      --text: #2D2D2D;
+      --muted: #6D6D6D;
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    html{
-      scroll-behavior:smooth;
+    html {
+      scroll-behavior: smooth;
     }
 
-    body{
-      font-family:'Plus Jakarta Sans', sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      overflow-x:hidden;
-      position:relative;
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
     }
 
-    /* HERO */
+    /* SECTION PRINCIPALE */
 
-    .hero{
-      min-height:100vh;
-      padding:30px 50px;
-      display:flex;
-      align-items:center;
+    .hero {
+      min-height: 100vh;
+      padding: 30px 50px;
+      display: flex;
+      align-items: center;
     }
 
-     .hero-grid{
-      width:100%;
-      max-width:1600px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:0.75fr 1.15fr 0.9fr;
-      align-items:center;
-      gap:40px;
-  }
+    .hero-grid {
+      width: 100%;
+      max-width: 1600px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 0.75fr 1.15fr 0.9fr;
+      align-items: center;
+      gap: 40px;
+    }
 
     /* LOGO */
 
-    .logo-side{
-        display:flex;
-        justify-content:flex-start;
-        align-items:center;
-        margin-left:-90px;
+    .logo-side {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-left: -90px;
     }
 
-    .logo-circle{
-      width:300px;
-      height:300px;
-      border-radius:50%;
-      background:#B5CD68;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      overflow:hidden;
-      border:7px solid rgba(255,255,255,0.75);
-      box-shadow:0 20px 40px rgba(0,0,0,0.08);
+    .logo-circle {
+      width: 300px;
+      height: 300px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #B5CD68;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      border: 7px solid rgba(255,255,255,0.75);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
 
-    .logo-circle img{
-      width:82%;
-      object-fit:contain;
+    .logo-circle img {
+      width: 82%;
+      height: 82%;
+      object-fit: contain;
     }
 
-    /* CONTENU */
+    /* TEXTE PRINCIPAL */
 
-    .content{
-      max-width:860px;
-      padding-top:20px;
+    .content {
+      max-width: 860px;
+      padding-top: 20px;
     }
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      background:#EEF5DE;
-      color:#617C2B;
-      padding:14px 24px;
-      border-radius:999px;
-      font-size:15px;
-      font-weight:700;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      margin-bottom:26px;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-soft);
+      color: #617C2B;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 26px;
     }
 
+    h1 {
+      font-size: clamp(38px, 4vw, 64px);
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      margin-bottom: 28px;
+    }
 
-  h1{
-      font-size:68px;
-      line-height:1.08;
-      letter-spacing:0;
-      font-weight:700;
-      margin-bottom:28px;
-      max-width:860px;
-  }
-
-    .subtitle{
-      font-size:20px;
-      line-height:1.8;
-      color:var(--muted);
-      margin-bottom:34px;
-      max-width:760px;
-      text-align:justify;
+    .subtitle {
+      font-size: 17px;
+      line-height: 1.9;
+      color: var(--muted);
+      margin-bottom: 30px;
+      max-width: 760px;
     }
 
     /* BOUTONS */
 
-    .buttons{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-      max-width:620px;
-      width:100%;
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 620px;
+      width: 100%;
     }
 
-    .btn{
-      background:var(--green);
-      color:white;
-      text-decoration:none;
-      padding:24px 30px;
-      border-radius:22px;
-      font-size:20px;
-      font-weight:700;
-      transition:0.2s ease;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow:0 14px 30px rgba(143,170,61,0.22);
-      width:100%;
+    .btn {
+      background: var(--green);
+      color: white;
+      text-decoration: none;
+      padding: 20px 26px;
+      border-radius: 18px;
+      font-size: 17px;
+      font-weight: 700;
+      text-align: center;
+      transition: 0.2s ease;
+      display: block;
+      box-shadow: 0 14px 30px rgba(143,170,61,0.18);
     }
 
-    .btn:hover{
-      transform:translateY(-2px);
-      opacity:0.96;
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.94;
     }
 
-    /* TELEPHONE */
-    
-    .phone-side{
-        display:flex;
-        justify-content:flex-end;
-        align-items:flex-end;
-        padding-bottom:20px;
+    /* IMAGE DU TELEPHONE */
+
+    .phone-side {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
     }
-    
-    .phone-side img{
-        width:470px;
-        max-width:100%;
-        height:auto;
-    }
-    
-    .phone-side img{
-        width:500px;   /* ou 490px selon le rendu */
-        max-width:100%;
-        height:auto;
-    
-        transform:none;
-        filter:none;
-        box-shadow:none;
+
+    .phone-side img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      object-fit: contain;
     }
 
     /* COMMENT CA MARCHE */
 
-    .how{
-      padding:110px 60px;
-      background:white;
-      position:relative;
-      z-index:1;
+    .how {
+      padding: 100px 60px;
+      background: white;
     }
 
-    .how-container{
-      max-width:1450px;
-      margin:auto;
+    .how-container {
+      max-width: 1450px;
+      margin: auto;
     }
 
-    .how h2{
-      text-align:center;
-      font-size:58px;
-      margin-bottom:70px;
-      letter-spacing:-0.06em;
+    .how h2 {
+      text-align: center;
+      font-size: clamp(34px, 4vw, 52px);
+      letter-spacing: -0.05em;
+      margin-bottom: 65px;
     }
 
-    .steps{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:34px;
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
     }
 
-    .step{
-      background:#FAF7F0;
-      border-radius:34px;
-      padding:38px;
-      box-shadow:0 12px 28px rgba(0,0,0,.05);
-      transition:.25s;
-    }
-    .step:hover{
-        transform:translateY(-6px);
-    }
-    .step-number{
-      width:60px;
-      height:60px;
-      border-radius:50%;
-      background:#9DB35C;
-      color:white;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
-      font-size:24px;
-      margin-bottom:28px;
+    .step {
+      background: #FAF7F0;
+      border-radius: 30px;
+      padding: 32px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+      transition: transform 0.25s ease;
     }
 
-    .step h3{
-      font-size:38px;
-      margin-bottom:18px;
-      letter-spacing:-0.04em;
+    .step:hover {
+      transform: translateY(-5px);
     }
 
-    .step p{
-      font-size:19px;
-      line-height:1.8;
-      color:#6D6D6D;
+    .step-number {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #9DB35C;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 21px;
+      margin-bottom: 25px;
     }
 
-    /* CONTACT */
-
-    .partner{
-      background:white;
-      padding:0 60px 120px;
-      position:relative;
-      z-index:1;
+    .step h3 {
+      font-size: 29px;
+      margin-bottom: 15px;
+      letter-spacing: -0.04em;
     }
 
-    .partner-box{
-      max-width:1450px;
-      margin:auto;
-      background:#EEF5DE;
-      border-radius:38px;
-      padding:70px;
-      text-align:center;
+    .step p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--muted);
     }
 
-    .partner-box h3{
-      font-size:58px;
-      line-height:1;
-      letter-spacing:-0.07em;
-      margin-bottom:24px;
-      max-width:1100px;
-      margin-left:auto;
-      margin-right:auto;
+    /* RAPPEL DU SYSTEME DE POINTS */
+
+    .points-banner {
+      padding: 0 60px 100px;
+      background: white;
     }
 
-    .partner-box p{
-      font-size:22px;
-      line-height:1.7;
-      color:#6D6D6D;
-      max-width:1000px;
-      margin:0 auto 40px;
+    .points-box {
+      max-width: 1450px;
+      margin: auto;
+      background: var(--green-soft);
+      border-radius: 35px;
+      padding: 60px 30px;
+      text-align: center;
+    }
+
+    .points-box h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.15;
+      letter-spacing: -0.05em;
+      margin-bottom: 20px;
+    }
+
+    .points-box p {
+      max-width: 850px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .points-equivalence {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 35px;
+      margin: 35px auto 0;
+      flex-wrap: wrap;
+    }
+
+    .point-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .point-icon {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+    }
+
+    .point-equals {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--green-dark);
+    }
+
+    /* CONTACT ET PARTENAIRES */
+
+    .partner {
+      background: white;
+      padding: 0 60px 100px;
+    }
+
+    .partner-box {
+      max-width: 1450px;
+      margin: auto;
+      background: var(--green-soft);
+      border-radius: 38px;
+      padding: 65px;
+      text-align: center;
+    }
+
+    .partner-box h2 {
+      font-size: clamp(32px, 4vw, 50px);
+      line-height: 1.15;
+      letter-spacing: -0.05em;
+      margin-bottom: 22px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .partner-box > p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 950px;
+      margin: 0 auto 35px;
     }
 
     /* FORMULAIRE */
 
-    .contact-form{
-      max-width:820px;
-      margin:0 auto;
-      display:flex;
-      flex-direction:column;
-      gap:22px;
+    .contact-form {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
 
     .contact-form input,
-    .contact-form textarea{
-      width:100%;
-      border:none;
-      border-radius:22px;
-      padding:24px 26px;
-      font-size:19px;
-      font-family:'Plus Jakarta Sans', sans-serif;
-      background:white;
-      color:#2D2D2D;
+    .contact-form textarea {
+      width: 100%;
+      border: none;
+      border-radius: 18px;
+      padding: 20px 22px;
+      font-size: 16px;
+      font-family: inherit;
+      background: white;
+      color: var(--text);
     }
 
-    .contact-form textarea{
-      min-height:190px;
-      resize:vertical;
+    .contact-form textarea {
+      min-height: 160px;
+      resize: vertical;
     }
 
     .contact-form input:focus,
-    .contact-form textarea:focus{
-      outline:2px solid #9DB35C;
+    .contact-form textarea:focus {
+      outline: 2px solid var(--green);
     }
 
-    .contact-form button{
-      background:var(--green);
-      color:white;
-      border:none;
-      border-radius:22px;
-      padding:26px 34px;
-      font-size:21px;
-      font-weight:700;
-      cursor:pointer;
-      transition:0.2s ease;
-      box-shadow:0 14px 30px rgba(143,170,61,0.22);
+    .contact-form button {
+      background: var(--green);
+      color: white;
+      border: none;
+      border-radius: 18px;
+      padding: 22px 30px;
+      font-size: 17px;
+      font-family: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+      box-shadow: 0 14px 30px rgba(143,170,61,0.18);
     }
 
-    .contact-form button:hover{
-      transform:translateY(-2px);
-      opacity:0.96;
+    .contact-form button:hover {
+      transform: translateY(-2px);
+      opacity: 0.94;
     }
 
-    /* RESPONSIVE */
+    /* ADAPTATION TABLETTES */
 
-    @media (max-width:1300px){
-
-    .hero-grid{
-        grid-template-columns:0.68fr 1.38fr 0.94fr;
-        gap:30px;
-    }
-
-      .content{
-        margin:auto;
+    @media (max-width: 1200px) {
+      .hero {
+        padding: 40px 30px;
       }
 
-      .buttons{
-        margin:auto;
+      .hero-grid {
+        grid-template-columns: 0.65fr 1.35fr;
+        gap: 30px;
       }
 
-      .steps{
-        grid-template-columns:1fr;
+      .logo-side {
+        margin-left: 0;
+        justify-content: center;
       }
 
-      .phone-side img{
-        width:340px;
+      .logo-circle {
+        width: 220px;
+        height: 220px;
       }
 
-      h1{
-        font-size:52px;
+      .content {
+        max-width: 100%;
       }
 
-    }
-
-    @media (max-width:768px){
-
-      body::before{
-        width:100%;
-        height:110px;
+      .phone-side {
+        grid-column: 1 / -1;
+        justify-content: center;
+        margin-top: 20px;
       }
 
-      .hero{
-        padding:40px 20px;
+      .phone-side img {
+        max-width: 320px;
       }
 
-      .logo-circle{
-        width:300px;
-        height:300px;
+      .steps {
+        gap: 20px;
       }
 
-      h1{
-        font-size:40px;
+      .step {
+        padding: 25px;
       }
 
-      .subtitle{
-        font-size:18px;
-      }
-
-      .btn{
-        width:100%;
-      }
-
-      .partner-box{
-        padding:36px 22px;
-      }
-
-      .partner-box h3{
-        font-size:38px;
+      .step h3 {
+        font-size: 25px;
       }
 
       .how,
-      .partner{
-        padding-left:20px;
-        padding-right:20px;
+      .points-banner,
+      .partner {
+        padding-left: 30px;
+        padding-right: 30px;
       }
 
+      .partner-box {
+        padding: 45px 30px;
+      }
     }
 
-  </style>
+    /* ADAPTATION MOBILES */
 
+    @media (max-width: 768px) {
+      .hero {
+        min-height: auto;
+        padding: 35px 20px 55px;
+      }
+
+      .hero-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .logo-side {
+        order: 0;
+      }
+
+      .logo-circle {
+        width: 170px;
+        height: 170px;
+      }
+
+      .content {
+        order: 1;
+        padding-top: 0;
+        width: 100%;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        padding: 10px 15px;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 38px;
+        margin-bottom: 20px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      .btn {
+        padding: 18px 20px;
+        font-size: 16px;
+      }
+
+      .phone-side {
+        order: 2;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .phone-side img {
+        max-width: 280px;
+      }
+
+      .how {
+        padding: 65px 20px;
+      }
+
+      .how h2 {
+        margin-bottom: 35px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .step {
+        padding: 28px;
+        border-radius: 25px;
+      }
+
+      .step h3 {
+        font-size: 27px;
+      }
+
+      .step p {
+        font-size: 16px;
+      }
+
+      .points-banner {
+        padding: 0 20px 65px;
+      }
+
+      .points-box {
+        padding: 40px 22px;
+        border-radius: 28px;
+      }
+
+      .points-box p {
+        font-size: 16px;
+      }
+
+      .points-equivalence {
+        gap: 18px;
+      }
+
+      .point-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 32px;
+      }
+
+      .point-item {
+        font-size: 14px;
+      }
+
+      .point-equals {
+        font-size: 24px;
+      }
+
+      .partner {
+        padding: 0 20px 65px;
+      }
+
+      .partner-box {
+        padding: 38px 20px;
+        border-radius: 28px;
+      }
+
+      .partner-box > p {
+        font-size: 16px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        padding: 17px;
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
   <main class="page">
 
-    <!-- HERO -->
+    <!-- SECTION PRINCIPALE -->
 
     <section class="hero">
-
       <div class="hero-grid">
 
         <!-- LOGO -->
 
         <div class="logo-side">
-
           <div class="logo-circle">
-
-            <img src="./logo.png"
-                 alt="Futur en Commun">
-
+            <img src="./logo.png" alt="Logo Futur en Commun">
           </div>
-
         </div>
 
-        <!-- TEXTE -->
+        <!-- PRESENTATION -->
 
         <div class="content">
 
           <div class="eyebrow">
-           🌱 SIGNALER • SOUTENIR • AGIR
+            🌱 RAMASSER • CUMULER • RÉCOMPENSER
           </div>
 
           <h1>
-            L'application éco-citoyenne qui récompense l'engagement pour l'environnement
+            L'application qui récompense l'engagement citoyen pour l'environnement
           </h1>
 
           <p class="subtitle">
-            Futur en Commun crée un cercle vertueux autour de l’engagement environnemental et permet à chacun de contribuer à un environnement plus propre : en réalisant des missions de nettoyage et de ramassage de déchets, en participant au financement des actions ou en proposant des récompenses aux citoyens engagés. L’objectif : créer une dynamique collective où l’engagement environnemental devient concret et valorisé, tout en contribuant au pouvoir d’achat de ceux qui s’engagent.
+            Chaque geste compte, chaque point aussi. Avec Futur en Commun,
+            ramassez des déchets, cumulez des points et échangez-les contre
+            des récompenses et des avantages proposés par nos commerçants
+            partenaires. Agissez concrètement pour un environnement plus
+            propre tout en valorisant votre engagement et votre pouvoir d'achat.
           </p>
 
           <div class="buttons">
 
             <a class="btn"
                href="https://futur-en-commun-h3qc.glide.page"
-               target="_blank">
-
-              Accéder à l’application →
-
+               target="_blank"
+               rel="noopener noreferrer">
+              Accéder à l'application →
             </a>
 
-            <a class="btn"
-               href="#contact">
-
-              Nous contacter →
-
+            <a class="btn" href="#contact">
+              Devenir partenaire →
             </a>
 
           </div>
-
         </div>
 
-        <!-- TELEPHONE -->
+        <!-- IMAGE DU TELEPHONE -->
 
         <div class="phone-side">
-
           <img src="./phone-home.png"
-               alt="Application Futur en Commun">
-
+               alt="Application Futur en Commun : ramassage des déchets et cumul des points">
         </div>
 
       </div>
-
     </section>
 
     <!-- COMMENT CA MARCHE -->
 
     <section class="how">
-
       <div class="how-container">
 
         <h2>Comment ça marche ?</h2>
@@ -499,59 +656,99 @@
         <div class="steps">
 
           <div class="step">
-
             <div class="step-number">1</div>
 
-            <h3>Signaler</h3>
+            <h3>Ramassez</h3>
 
             <p>
-              Repérez une zone dégradée et signalez-la en quelques secondes avec une photo et une localisation.
+              Ramassez des déchets autour de vous et contribuez à préserver
+              un environnement plus propre. Chaque geste compte !
             </p>
-
           </div>
 
           <div class="step">
-
             <div class="step-number">2</div>
 
-            <h3>Soutenir</h3>
+            <h3>Cumulez vos points</h3>
 
             <p>
-              Les citoyens, commerces et partenaires peuvent contribuer à une cagnotte locale afin de financer une action concrète.
+              Chaque déchet ramassé et validé vous rapporte un point.
+              Multipliez les bons gestes et faites grandir votre compteur
+              de points au fil de vos actions.
             </p>
-
           </div>
 
           <div class="step">
-
             <div class="step-number">3</div>
 
-            <h3>Agir</h3>
+            <h3>Utilisez vos points</h3>
 
             <p>
-              Des missions rémunérées permettent ensuite d’agir concrètement pour améliorer durablement le cadre de vie.
+              Échangez vos points cumulés contre des récompenses et des
+              avantages proposés par nos commerçants partenaires.
+              Votre engagement écologique devient concret !
             </p>
-
           </div>
 
         </div>
-
       </div>
-
     </section>
 
-    <!-- CONTACT -->
+    <!-- LE SYSTEME DE POINTS -->
 
-    <section class="partner" id="contact">
+    <section class="points-banner">
+      <div class="points-box">
 
-      <div class="partner-box">
-
-        <h3>
-          Construisons ensemble des actions locales concrètes.
-        </h3>
+        <h2>
+          Chaque geste compte, chaque point aussi.
+        </h2>
 
         <p>
-          Collectivités, entreprises, commerces, festivals, associations ou citoyens : échangeons autour de collaborations locales et environnementales.
+          Un déchet ramassé et validé = un point gagné.
+          Cumulez vos points et échangez-les contre des récompenses
+          et des avantages chez nos commerçants partenaires.
+        </p>
+
+        <div class="points-equivalence">
+
+          <div class="point-item">
+            <div class="point-icon">🗑️</div>
+            <span>1 déchet ramassé</span>
+          </div>
+
+          <div class="point-equals">=</div>
+
+          <div class="point-item">
+            <div class="point-icon">⭐</div>
+            <span>1 point gagné</span>
+          </div>
+
+          <div class="point-equals">→</div>
+
+          <div class="point-item">
+            <div class="point-icon">🎁</div>
+            <span>Des récompenses</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT ET PARTENAIRES -->
+
+    <section class="partner" id="contact">
+      <div class="partner-box">
+
+        <h2>
+          Ensemble, valorisons les gestes qui comptent.
+        </h2>
+
+        <p>
+          Commerçants, entreprises, collectivités, associations :
+          devenez partenaires de Futur en Commun et proposez des avantages
+          aux citoyens engagés pour l'environnement. Ensemble, faisons
+          de chaque déchet ramassé un geste utile pour la planète et de
+          chaque point une récompense concrète pour le pouvoir d'achat.
         </p>
 
         <form action="https://formspree.io/f/mojbngak"
@@ -561,29 +758,30 @@
           <input type="text"
                  name="name"
                  placeholder="Votre nom"
+                 aria-label="Votre nom"
                  required>
 
           <input type="email"
                  name="email"
                  placeholder="Votre email"
+                 aria-label="Votre email"
                  required>
 
           <textarea name="message"
                     placeholder="Votre message"
+                    aria-label="Votre message"
                     required></textarea>
 
           <button type="submit">
-            Nous contacter →
+            Devenir partenaire — Nous contacter →
           </button>
 
         </form>
 
       </div>
-
     </section>
 
   </main>
 
 </body>
-
 </html>
